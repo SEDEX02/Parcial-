@@ -10,129 +10,135 @@
 
 <header>
   <h1>PETRONA BURGER</h1>
-  <span class="tag">PROYECTO ACADÉMICO</span>
+  <span class="etiqueta-proyecto">PROYECTO ACADÉMICO</span>
 </header>
 
-<nav class="tabs">
-  <a href="#" class="active">[Crear Pedido]</a>
+<nav class="navegacion">
+  <a href="creacion_pedidos.php" class="seccion-activa">[Crear Pedido]</a>
   <a href="#">[Todos los Pedidos]</a>
   <a href="#">[Consulta por Cliente]</a>
 </nav>
 
 <main>
+
   <!-- CREAR PEDIDO -->
-  <section class="panel crear-pedido">
-    <div class="menu-item">
+
+  <section class="seccion-crear-pedido">
+
+    <!-- Producto: Costillas -->
+    <div class="producto-menu">
       <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Costillas">
-      <div class="info">
+      <div class="producto-info">
         <h3>Costillas</h3>
-        <div class="price">15.000 pesos</div>
+        <div class="producto-precio">15.000 pesos</div>
       </div>
-      <div class="qty-control">
-        <button class="btn-round minus">−</button>
-        <span class="qty-val">0</span>
-        <button class="btn-round plus">+</button>
+      <div class="control-cantidad">
+        <button class="boton-cantidad boton-restar">−</button>
+        <span class="cantidad-valor">0</span>
+        <button class="boton-cantidad boton-sumar">+</button>
       </div>
     </div>
 
-    <div class="menu-item">
+    <!-- Producto: Malteadas -->
+    <div class="producto-menu">
       <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&h=300&fit=crop" alt="Malteadas">
-      <div class="info">
+      <div class="producto-info">
         <h3>Malteadas</h3>
-        <div class="price">5.000 pesos</div>
+        <div class="producto-precio">5.000 pesos</div>
       </div>
-      <div class="qty-control">
-        <button class="btn-round minus">−</button>
-        <span class="qty-val">0</span>
-        <button class="btn-round plus">+</button>
+      <div class="control-cantidad">
+        <button class="boton-cantidad boton-restar">−</button>
+        <span class="cantidad-valor">0</span>
+        <button class="boton-cantidad boton-sumar">+</button>
       </div>
     </div>
 
-    <div class="order-summary">
+    <!-- Resumen del pedido -->
+    <div class="resumen-pedido">
       <h3>Tu pedido</h3>
 
-      <div class="field">
+      <div class="campo">
         <label>Número de pedido</label>
-        <input type="text" value="1025" readonly>
+        <input type="text" readonly placeholder="10">
       </div>
 
-      <div class="field-row">
-        <div class="field">
+      <div class="fila-campos">
+        <div class="campo">
           <label>Cédula del cliente</label>
-          <input type="text" value="79.123.456">
+          <input type="text" placeholder="1948752986">
         </div>
-        <button class="btn-ok">OK</button>
+        <button class="boton-verificar">OK</button>
       </div>
-      <div class="verify-note">⚠ Verificar cédula</div>
+      <div class="nota-verificacion">⚠ Verificar cédula</div>
 
-      <div class="productos-list">
-        <span class="label">Productos:</span>
+      <div class="lista-productos">
+        <span class="lista-productos-titulo">Productos:</span>
         <ul>
           <li><span>Costillas x 2</span><span>30.000</span></li>
           <li><span>Malteadas x 1</span><span>5.000</span></li>
         </ul>
       </div>
 
-      <div class="total-box">
-        <span class="label">Valor total final:</span>
-        <span class="value">35.000 pesos</span>
+      <div class="caja-total">
+        <span class="total-etiqueta">Valor total final:</span>
+        <span class="total-valor">35.000 pesos</span>
       </div>
 
-      <button class="btn-finalizar">Finalizar pedido</button>
+      <button class="boton-finalizar">Finalizar pedido</button>
     </div>
   </section>
 
   <!-- TODOS LOS PEDIDOS -->
-  <section class="panel pedidos-panel">
-    <div class="pedidos-header">
-      <button class="btn-ordenar">▼ Ordenar</button>
-      <button class="btn-filtro">Por Cliente</button>
-      <button class="btn-filtro">Por Cantidad (Asc)</button>
+  <section class="panel-pedidos">
+    <div class="pedidos-controles">
+      <button class="boton-ordenar">▼ Ordenar</button>
+      <button class="boton-filtro">Por Cliente</button>
+      <button class="boton-filtro">Por Cantidad (Asc)</button>
     </div>
 
-    <div class="pedidos-grid">
-      <div class="pedido-card">
+    <div class="listado-pedidos">
+      <div class="tarjeta-pedido">
         <h4>Pedido #1024</h4>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <div class="productos">Cliente:<br>Malteadas x 1<br>Malteadas x 1</div>
-        <button class="btn-eliminar">Eliminar</button>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <div class="pedido-productos">Cliente:<br>Malteadas x 1<br>Malteadas x 1</div>
+        <button class="boton-eliminar">Eliminar</button>
       </div>
 
-      <div class="pedido-card">
+      <div class="tarjeta-pedido">
         <h4>Pedido #1023</h4>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <div class="productos">Cliente:<br>Malteadas x 1<br>Malteadas x 1</div>
-        <button class="btn-eliminar">Eliminar</button>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <div class="pedido-productos">Cliente:<br>Malteadas x 1<br>Malteadas x 1</div>
+        <button class="boton-eliminar">Eliminar</button>
       </div>
 
-      <div class="pedido-card">
+      <div class="tarjeta-pedido">
         <h4>Pedido #1022</h4>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <div class="productos">Cliente:</div>
-        <button class="btn-eliminar">Eliminar</button>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <div class="pedido-productos">Cliente:</div>
+        <button class="boton-eliminar">Eliminar</button>
       </div>
 
-      <div class="pedido-card">
+      <div class="tarjeta-pedido">
         <h4>Pedido #1025</h4>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Malteadas x 1</span><strong>5.000</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <button class="btn-eliminar">Eliminar</button>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Malteadas x 1</span><strong>5.000</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <button class="boton-eliminar">Eliminar</button>
       </div>
 
-      <div class="pedido-card">
+      <div class="tarjeta-pedido">
         <h4>Pedido #1024</h4>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <div class="row"><span>Cliente:</span><strong>79.123.456</strong></div>
-        <div class="row"><span>Malteadas x 1</span><strong>5.000</strong></div>
-        <div class="row"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
-        <button class="btn-eliminar">Eliminar</button>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <div class="pedido-linea"><span>Cliente:</span><strong>79.123.456</strong></div>
+        <div class="pedido-linea"><span>Malteadas x 1</span><strong>5.000</strong></div>
+        <div class="pedido-linea"><span>Valor Final:</span><strong>20.000 pesos</strong></div>
+        <button class="boton-eliminar">Eliminar</button>
       </div>
     </div>
   </section>
