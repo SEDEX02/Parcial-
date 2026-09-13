@@ -21,25 +21,12 @@
  *      Todo lo demás de este archivo queda exactamente igual.
  * =========================================================================
  */
-
+require_once __DIR__ . '/conexion/pedidos_bd.php';
 // ---- Menú (esto normalmente vendrá de la tabla `menu` de Duban) ----
 $precios = [
     'Costillas' => 15000,
     'Malteadas' => 5000,
 ];
-
-/**
- * PLACEHOLDER temporal — Duban la va a reemplazar por la función real que
- * inserta en MySQL con PDO y devuelve el numero_pedido único generado por
- * la base de datos.
- */
-function guardarPedido(string $cedula, array $productos): array
-{
-    // Simula un número de pedido autoincremental mientras no hay BD real.
-    $numero_pedido = rand(1000, 9999);
-    return ['numero_pedido' => $numero_pedido];
-}
-
 function formatearPesos(int $valor): string
 {
     return number_format($valor, 0, ',', '.') . ' pesos';
@@ -78,23 +65,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if (empty($errores)) {
-                $productos = [];
-                if ($cant_costillas > 0) {
-                    $productos[] = ['nombre' => 'Costillas', 'cantidad' => $cant_costillas, 'precio_unitario' => $precios['Costillas']];
-                }
-                if ($cant_malteadas > 0) {
-                    $productos[] = ['nombre' => 'Malteadas', 'cantidad' => $cant_malteadas, 'precio_unitario' => $precios['Malteadas']];
-                }
+    $productos = [];
 
-                // ---- Aquí se llama a la parte de Duban ----
-                $resultado = guardarPedido($cedula, $productos);
+    if ($cant_costillas > 0) {
+        $productos[] = [
+            'nombre' => 'Costillas',
+            'cantidad' => $cant_costillas,
+            'precio_unitario' => $precios['Costillas']
+        ];
+    }
 
-                $total = ($cant_costillas * $precios['Costillas']) + ($cant_malteadas * $precios['Malteadas']);
-                $exito = ['numero_pedido' => $resultado['numero_pedido'], 'total' => $total];
+    if ($cant_malteadas > 0) {
+        $productos[] = [
+            'nombre' => 'Malteada',
+            'cantidad' => $cant_malteadas,
+            'precio_unitario' => $precios['Malteadas']
+        ];
+    }
 
-                $cedula = '';
-                $cant_costillas = 0;
-                $cant_malteadas = 0;
+    // ---- Aquí se llama a la parte de Duban ----
+    $resultado = guardarPedido($cedula, $productos);
             }
             break;
     }
@@ -118,9 +108,9 @@ $total = ($cant_costillas * $precios['Costillas']) + ($cant_malteadas * $precios
 </header>
 
 <nav class="navegacion">
-  <a href="index.html" class="seccion-activa">[Crear Pedido]</a>
-  <a href="#">[Todos los Pedidos]</a>
-  <a href="#">[Consulta por Cliente]</a>
+  <a href="creacion_pedidos.php" class="seccion-activa">[Crear Pedido]</a>
+  <a href="pedidos_ordenados.php">[Todos los Pedidos]</a>
+  <a href="consulta_cliente.php">[Consulta por Cliente]</a>
 </nav>
 
 <main>
