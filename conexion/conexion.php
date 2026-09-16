@@ -6,7 +6,7 @@ class conexion{
 	}	
 	
 	public function conectar(){
-		$this->link = new mysqli('localhost', 'root', '', 'database-petronaburger');
+		$this->link = new mysqli('%','admin-petronaburger','hClLpHrY/WVJyD)9','database-petronaburger');
 		if ($this->link->connect_errno) {
 			echo "Falló la conexión a MySQL: (" . $this->link->connect_errno . ") " . $this->link->connect_error;
 		}
