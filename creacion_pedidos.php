@@ -65,26 +65,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if (empty($errores)) {
-    $productos = [];
+                $productos = [];
 
-    if ($cant_costillas > 0) {
-        $productos[] = [
-            'nombre' => 'Costillas',
-            'cantidad' => $cant_costillas,
-            'precio_unitario' => $precios['Costillas']
-        ];
-    }
+                if ($cant_costillas > 0) {
+                    $productos[] = [
+                        'nombre' => 'Costillas',
+                        'cantidad' => $cant_costillas,
+                        'precio_unitario' => $precios['Costillas']
+                    ];
+                }
 
-    if ($cant_malteadas > 0) {
-        $productos[] = [
-            'nombre' => 'Malteada',
-            'cantidad' => $cant_malteadas,
-            'precio_unitario' => $precios['Malteadas']
-        ];
-    }
+                if ($cant_malteadas > 0) {
+                    $productos[] = [
+                        'nombre' => 'Malteada',
+                        'cantidad' => $cant_malteadas,
+                        'precio_unitario' => $precios['Malteadas']
+                    ];
+                }
 
-    // ---- Aquí se llama a la parte de Duban ----
-    $resultado = guardarPedido($cedula, $productos);
+                $total_pedido = ($cant_costillas * $precios['Costillas']) + ($cant_malteadas * $precios['Malteadas']);
+
+                // ---- Aquí se llama a la parte de Duban ----
+                try {
+                    $resultado = guardarPedido($cedula, $productos);
+                    $exito = [
+                        'numero_pedido' => $resultado['numero_pedido'],
+                        'total' => $total_pedido,
+                    ];
+
+                    // Reiniciar el pedido después de guardarlo con éxito
+                    $cant_costillas = 0;
+                    $cant_malteadas = 0;
+                    $cedula = '';
+                } catch (Exception $e) {
+                    $errores[] = 'No se pudo guardar el pedido: ' . $e->getMessage();
+                }
             }
             break;
     }
