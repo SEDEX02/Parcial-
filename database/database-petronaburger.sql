@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2026 a las 21:25:50
+-- Tiempo de generación: 16-09-2026 a las 02:44:46
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -398,7 +398,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2026-09-13 19:17:24', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
+('root', '2026-09-16 00:39:14', '{\"Console\\/Mode\":\"collapse\",\"lang\":\"es\"}');
 
 -- --------------------------------------------------------
 
@@ -422,6 +422,13 @@ CREATE TABLE `pma__users` (
   `username` varchar(64) NOT NULL,
   `usergroup` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Volcado de datos para la tabla `pma__users`
+--
+
+INSERT INTO `pma__users` (`username`, `usergroup`) VALUES
+('admin-petronaburger', '');
 
 --
 -- Índices para tablas volcadas
